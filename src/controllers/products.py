@@ -7,11 +7,14 @@ from src.models.id import id_request
 from src.service.product import product_service
 
 app, api = server.app, server.api
-@api.route('/products')
+@api.route('/products/<string:id>')
 class ProductList(Resource):
     @api.marshal_list_with(product_response)
-    def get(self):
-        products = product_service.get()
+    def get(self,id = "0"):
+        if(id != "0"):
+            products = product_service.get_one(id)
+        else:
+            products = product_service.get()
         return products, 200
         
     @api.expect(product_request, validate=True)
