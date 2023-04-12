@@ -9,7 +9,8 @@ address = server.api.model('Address', {
  'cep': fields.String(required=True, min_Length=8, max_Length=8, description='CEP'),
  'complement': fields.String(required=True, min_Length=3, max_Length=200, description='Complemento'),
  'city': fields.String(required=True, min_Length=3, max_Length=200, description='Cidade'),
-  'state': fields.String(required=True, min_Length=3, max_Length=200, description='Estado')
+ 'state': fields.String(required=True, min_Length=3, max_Length=200, description='Estado'),
+ 'estado': fields.String(required=True, min_Length=1, max_Length=3, description='estado'),
 })
 
 user = server.api.model('User', {
